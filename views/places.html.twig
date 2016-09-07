@@ -1,0 +1,30 @@
+<html>
+<head>
+    <title>Cities I've visited</title>
+</head>
+<body>
+    <h1>Cities I've visited</h1>
+
+    {% if cities is not empty %}
+        <p>Here are all your cities you've visited so far:</p>
+        <div class="">
+          {% for city in cities %}
+          <img src="{{city.image}}" alt="" />
+              <p>{{ city.getCity }}</p>
+          {% endfor %}
+        </div>
+
+    {% endif %}
+
+    <form action='/cities' method='post'>
+        <label for='city'>City:</label>
+        <input id='city' name='input_city' type='text'>
+        <label for="">Put in a URL to an image of your city:</label>
+        <input type="text" name="input_image" value="">
+        <button type='submit'>Add city</button>
+    </form>
+    <form action='/delete_cities' method='post'>
+        <button type='submit'>Clear</button>
+    </form>
+</body>
+</html>
